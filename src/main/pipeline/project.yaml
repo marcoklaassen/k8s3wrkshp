@@ -1,0 +1,9 @@
+kind: Project
+apiVersion: project.openshift.io/v1
+metadata:
+  name: k8s3wrkshp
+  labels:
+    argocd.argoproj.io/managed-by: openshift-gitops
+spec:
+  finalizers:
+    - kubernetes
