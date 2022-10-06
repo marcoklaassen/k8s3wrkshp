@@ -5,7 +5,7 @@ metadata:
   namespace: k8s3wrkshp
 spec:
   selector:
-    name: k8s3wrkshp-demo
+    app: k8s3wrkshp-demo
   ports:
     - protocol: TCP
       port: 80
