@@ -23,6 +23,10 @@ spec:
       name: DOCKERFILE
       type: string
       default: src/main/docker/Dockerfile.native
+    - description: app version
+        name: APPVERSION
+        type: string
+        default: 0.0.1-SNAPSHOT
   tasks:
     - name: fetch-repository
       params:
@@ -61,7 +65,7 @@ spec:
     - name: build-image
       params:
         - name: IMAGE
-          value: $(params.IMAGE):$(params.git-revision)
+          value: $(params.IMAGE):$(params.APPVERSION)
         - name: DOCKERFILE
           value: $(params.DOCKERFILE)
       runAfter:
