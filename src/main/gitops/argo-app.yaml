@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  creationTimestamp: null
+  name: k8s3wrkshp-app
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  ignoreDifferences:
+    - group: argoproj.io
+      jsonPointers:
+        - /status
+      kind: Application
+    - group: triggers.tekton.dev
+      jsonPointers:
+        - /status
+      kind: EventListener
+    - group: triggers.tekton.dev
+      jsonPointers:
+        - /status
+      kind: TriggerTemplate
+    - group: triggers.tekton.dev
+      jsonPointers:
+        - /status
+      kind: TriggerBinding
+    - group: route.openshift.io
+      jsonPointers:
+        - /spec/host
+      kind: Route
+  project: default
+  source:
+    path: src/main/openshift
+    repoURL: https://github.com/marcoklaassen/k8s3wrkshp.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+status:
+  health: {}
+  summary: {}
+  sync:
+    comparedTo:
+      destination: {}
+      source:
+        repoURL: ""
+    status: ""

@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: DeploymentConfig
+metadata:
+  name: k8s3wrkshp-demo
+  namespace: k8s3wrkshp
+spec:
+  replicas: 1
+  selector:
+    name: k8s3wrkshp-demo
+  template:
+    metadata:
+      labels:
+        name: k8s3wrkshp-demo
+    spec:
+      containers:
+        - image: quarkus-k8s3wrkshp-native
+          name: k8s3wrkshp-demo
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: foo
+              value: bar
+      restartPolicy: Always
+  triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+          - k8s3wrkshp-demo
+        from:
+          kind: ImageStreamTag
+          name: quarkus-k8s3wrkshp-native:94bd5286e54b7f55b3722c9eac9e308035991af1d3b0805135fc7a0e6e3d4ac0
+      type: ImageChange
+  strategy:
+    type: Rolling
