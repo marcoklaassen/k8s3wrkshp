@@ -54,3 +54,19 @@ If you want to learn more about building native executables, please consult http
 Easily start your Reactive RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+## Demo Plan
+* create Quarkus App with Quarkus CLI
+* test Quarkus App local
+* Deploy Project / Namespace
+* Deploy Pipeline on already installed Pipeline Operator 
+* Start Pipeline with default version
+* Apply Git Ops Role Binding
+* Apply Git Ops App
+* Sync Git Ops App with Deployment Config on "LATEST"
+* Check Deployment
+* Check Slack Notification for ACS Violation
+* Check ACS Violation for namespace and show LATEST Tag violation
+* Change Deployment Config to version tag and push to git
+* Observe Deployment with ArgoCD and observe violations
+* 

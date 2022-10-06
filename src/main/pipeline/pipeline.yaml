@@ -24,9 +24,9 @@ spec:
       type: string
       default: src/main/docker/Dockerfile.native
     - description: app version
-        name: APPVERSION
-        type: string
-        default: 0.0.1-SNAPSHOT
+      name: APPVERSION
+      type: string
+      default: latest
   tasks:
     - name: fetch-repository
       params:
