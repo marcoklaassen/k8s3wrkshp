@@ -32,4 +32,3 @@ spec:
       maxUnavailable: 25%
   triggers:
     - type: ConfigChange
-  paused: false
