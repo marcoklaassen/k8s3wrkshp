@@ -15,7 +15,7 @@ spec:
       containers:
         - name: k8s3wrkshp-demo
           image: >-
-            image-registry.openshift-image-registry.svc:5000/k8s3wrkshp/quarkus-k8s3wrkshp-native:30a1d0b796c4373b5e5f4e71957e86903c4c5468e61312144be09cc33a3ff18d
+            image-registry.openshift-image-registry.svc:5000/k8s3wrkshp/quarkus-k8s3wrkshp-native:latest
           ports:
             - containerPort: 8080
               protocol: TCP
