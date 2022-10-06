@@ -22,7 +22,6 @@ spec:
           env:
             - name: foo
               value: bar
-      imagePullSecrets: []
   strategy:
     type: Rolling
     rollingParams:
